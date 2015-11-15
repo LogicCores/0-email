@@ -1,8 +1,6 @@
 
 exports.forLib = function (LIB) {
 
-    const MANDRILL = require("mandrill-api");
-
     var exports = {};
 
     exports.spin = function (context) {
@@ -23,6 +21,8 @@ exports.forLib = function (LIB) {
 //console.log("context.config", context.config);
 
     				LIB.assert(typeof context.config.mandrill.credentials.apiKey, "string");
+
+                    const MANDRILL = require("mandrill-api");
 
     				var client = new MANDRILL.Mandrill(context.config.mandrill.credentials.apiKey);
 
